@@ -16,3 +16,5 @@
 {"ts":"2026-08-17T17:59:04+08:00","type":"supersede-note","supersedes":"line7 旧 HIGH/证据闭环 判定","reason":"Codex 独立审计(2026-08-17)指出:旧 HIGH 条目未标 superseded,下游可能误取;本行为唯一现行口径标记,现行口径=0.5/1 MEDIUM-LOW(见 line 9 与 GROWTH.md 外部验证记录)"}
 {"ts":"2026-08-17T18:00:35","dsh_comments":0,"skill_stars":0,"taiji_stars":1,"archify_comments":0,"memory_disc":26,"x_followers":41,"x_posts":"2028814025967140865,2089076966855250058","x_replies":"none|0 0"}
 {"ts":"2026-08-17T18:00:56+08:00","type":"ai-audit","auditor":"codex(用户发起)","verdict":"总体符合度:中","note":"AI 独立审计,不计入外部验证 1/1(判定标准:AI 工具代答/审查不算真实人类反馈);价值=高:Top3 已处理,详见 LESSONS L23"}
+{"ts":"2026-08-17T18:32:46","dsh_comments":0,"skill_stars":0,"taiji_stars":1,"archify_comments":0,"memory_disc":26,"x_followers":41,"x_posts":"2028814025967140865,2089294616478748993","x_replies":"2089294616478748993|0 0"}
+{"ts":"2026-08-17T20:20:05","dsh_comments":0,"skill_stars":0,"taiji_stars":1,"archify_comments":0,"memory_disc":27,"x_followers":42,"x_posts":"2028814025967140865,2089294616478748993","x_replies":"2089294616478748993|0 0"}
