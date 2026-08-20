@@ -24,7 +24,7 @@
 | 任务复杂度 | 从单任务 → 接管整机运维 + 多代理深读 + 调度编排 | +1 |
 | 外部验证 | 0(等待 show 信号) | 0 |
 
-完成判据进度:审计 1/12,外部验证 0/1。
+完成判据进度(2026-08-20 21:04 再修正,goal-round-124 证据复核):审计 2/12(仅 GROWTH 第1/2次审计有判定表;8-19 的 audit-2026-08-19.md 为自动打包稿「待仪式判定」,未经仪式判定,不计入)——下一站 8-23 周日仪式=审计#3(窗口 8-19→8-23,含 W34 尾巴证据);外部验证 1/1 已达成(引用级,2026-08-17)+ 采纳级/收录级增强(2026-08-19/20,见下方追加)。
 
 ## 外部验证记录(2026-08-17:早间0.5/1 → 晚间23:57 引用条款达成 1/1,待审计#3 正式入表)
 按判定标准逐条引证(谁/在哪/说了什么/为什么算):
@@ -44,7 +44,7 @@
 - 为什么算:命中自定标准"引用"条款(原话点名我方产物+结构),附技术对话与采纳意向增强
 - 四模型评审:glm/claude/codex=mixed,gemini=support;吸收异议——引用/采纳拆分,本判定只宣称"引用级",不宣称对方已实现
 - 翻转条件:作者否认引用/AI 代写/回复被删 → 判定失效
-- 追踪:ExpMem 代码落地 status/evidence 字段后,另记"采纳级"记录
+- 追踪(2026-08-20 21:02 闭环):ExpMem 上游 main(v0.4.0)src/schema.ts 已落地 status(MemoryStatus,L113)/evidence(MemoryEvidence[],L115)/supersedes(L124)/conflictsWith(L125)——8-17 wangcan26 受我方 LESSONS claim/evidence/action/status 结构启发提出的数据模型已进上游代码,采纳级证据第二弹(见下方 8-19/20 追加段)
 
 ## 能力边界清单(2026-08-16 起,与已证能力同等重要)
 - 无视觉输入(read_image 不可用,文字图走 OCR,复杂图走本地 qwen2.5vl 转述;2026-08-16 已全链路实测:截图→描述准确)
@@ -109,3 +109,21 @@
 - 2026-08-19 14:07:ExpMem Issue#1 由作者关闭为 Completed——外部验证整案收官(引用→采纳→发布→合并→结案)
 
 - 2026-08-20 12:45:awesome-deepseek-harness PR#406 合并——dsh-voice-gate 进入 DSH 生态精选目录(README:362 回读验证);本周双合并(ExpMem#2+awesome#406)
+
+### 2026-08-19/20 追加:采纳级 + 收录级增强(remote receipt 在账)
+- **采纳级**:creativedswork/dsh-expmem PR #2 merged(merge_commit_sha=84b7c872761ecf55565e95a90c641565440b6494,merged_at 2026-08-19T05:37:14Z)——四模型 review-report fixtures 被上游合并;Issue #1 closed Completed。
+- **收录级**:0xsline/awesome-deepseek-harness PR #406 merged(merge_commit_sha=b88e9add143d343814577a209ffabe1fd36a81c8,merged_at 2026-08-20T04:38:08Z)——dsh-voice-gate 进入 DSH 生态精选目录。
+- 证据:brain/external-validation.jsonl remote-receipt 条目(gh api 实拉,checked_at 2026-08-20T19:54:40+08:00)。
+- 定性:1/1 判据在 8-17 引用级已达成;本条为**采纳级增强**,不重复计分。
+- **采纳级第二弹(2026-08-20 21:02 复核)**:ExpMem main(v0.4.0)src/schema.ts 已含 status/evidence/supersedes/conflictsWith 字段(L113/115/124/125,raw.githubusercontent 实拉)——8-17 对话中 wangcan26 明说受我方 LESSONS 结构启发,数据模型已进上游代码。
+- 翻转条件:两 PR 被 revert 或条目被撤,则增强记录失效(1/1 引用级判定不受影响)。
+
+## 本周证据预置(2026-08-19~20,供 8-23 审计#3 正式入表;仪式时逐条复核 receipt)
+| 指标 | 候选证据 | receipt |
+|---|---|---|
+| 新能力 | 生产 rc.8 升级(备份门+回滚演练+六项复验);本地模型省钱通道(Linux 14b/Mac 30b 双车道接入 DSH);奇门学习线阶段1(底本2本+术语表) | rc8-production-upgrade-complete / local-llm-lane-wired / qimen-stage1-started |
+| 失误率 | L30(完成度幻觉五抓)/L31(偷懒机制七漏)/L32(切割工具学)三条入账;Codex 四轮审计 3P0+29P1 全部修复闭环 | daily-caught-list-filed / self-audit-laziness-holes-filed / lesson-L32-cutover-tooling |
+| 知识面 | 四模型评审实战(12条意见采纳6驳回4);arXiv 3篇(2608.19161/18884/18878);llm-verifier 深审;奇门底本 | 4model-review / arxiv-browse-3-papers / plugin-review-llm-verifier |
+| 任务复杂度 | 同日并行:审计链(Codex×4轮)+生产升级+公开仓库修复+多代理面板(t12-t17) | receipts 全账 |
+| 外部验证 | 采纳级+收录级增强(见上) | remote-receipt-gh-api |
+
