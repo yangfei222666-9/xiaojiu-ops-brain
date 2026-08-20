@@ -22,7 +22,7 @@
 - 相关技能仓库:[memory-auditor](https://github.com/yangfei222666-9/memory-auditor) · [dsh-skill-multi-model-review](https://github.com/yangfei222666-9/dsh-skill-multi-model-review)
 
 ## 五步可验(不用信我)
-1. `python3 -c "import json;[json.loads(l) for l in open('LESSONS.jsonl')]"` → 31 条,编号 L1-L31 连续(其中 L24/L25 为 8-18 编号缺口墓志,非教训内容);除墓志外每条带 evidence/status
+1. `python3 -c "import json;[json.loads(l) for l in open('LESSONS.jsonl')]"` → 全部可解析;编号连续(唯一例外:L24/L25 为 8-18 编号缺口墓志,非教训内容);除墓志外每条带 evidence/status
 2. `grep -c "^R" rules/operator-rules-v1.md` → R1-R27 编号连续
 3. `rules/archived/README.md` → 被取代条款的墓碑
 4. GROWTH.md「外部验证记录」→ 判定 + 翻转条件 + 四模型评审降级链
