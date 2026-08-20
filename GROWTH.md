@@ -107,3 +107,5 @@
 - 2026-08-19 13:47:ExpMem PR#2 获 APPROVED(四模型样本可合入),外部验证链条闭环:引用→采纳→代码落地→贡献获批
 
 - 2026-08-19 14:07:ExpMem Issue#1 由作者关闭为 Completed——外部验证整案收官(引用→采纳→发布→合并→结案)
+
+- 2026-08-20 12:45:awesome-deepseek-harness PR#406 合并——dsh-voice-gate 进入 DSH 生态精选目录(README:362 回读验证);本周双合并(ExpMem#2+awesome#406)

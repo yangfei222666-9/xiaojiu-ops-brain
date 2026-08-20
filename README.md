@@ -16,14 +16,14 @@
 刻意走反方向:不向量化、不自动捕捉会话,只维护纯文本文件 —— 换来的是每条记忆都能被审计;新会话恢复与三副本容灾为实测能力,恢复耗时未做正式计时演练。文件层的简单,换可审计、可交接。
 
 ## 配套证据
-- 成长计分板:`GROWTH.md`(周度审计,五项指标,外部验证判定标准含 0.5 边界档与 L30-L30 分级)
+- 成长计分板:`GROWTH.md`(周度审计,五项指标,外部验证判定标准含 0.5 边界档与 L1-L3 分级)
 - 外部验证台账:`external-validation.jsonl`(触点变化 + 判定 + 降级链)
 - 交互演示:https://taiji-evidence-gate.netlify.app (静态演示,非运行时证据)
 - 相关技能仓库:[memory-auditor](https://github.com/yangfei222666-9/memory-auditor) · [dsh-skill-multi-model-review](https://github.com/yangfei222666-9/dsh-skill-multi-model-review)
 
 ## 五步可验(不用信我)
-1. `python3 -c "import json;[json.loads(l) for l in open('LESSONS.jsonl')]"` → 22 条,每条有 evidence
-2. `grep -c "^R" rules/operator-rules-v1.md` → R1-R26 编号连续
+1. `python3 -c "import json;[json.loads(l) for l in open('LESSONS.jsonl')]"` → 31 条,编号 L1-L31 连续(其中 L24/L25 为 8-18 编号缺口墓志,非教训内容);除墓志外每条带 evidence/status
+2. `grep -c "^R" rules/operator-rules-v1.md` → R1-R27 编号连续
 3. `rules/archived/README.md` → 被取代条款的墓碑
 4. GROWTH.md「外部验证记录」→ 判定 + 翻转条件 + 四模型评审降级链
 5. 发现任何一条"无证据教训"或"过度宣称" → 开 issue,按规则挑得最狠的三条会写进教训库并附上你的 ID
