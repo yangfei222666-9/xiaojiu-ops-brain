@@ -1,0 +1,1 @@
+{"ts":"<ISO-8601>","event_id":"<unique-id>","action":"daily-backup-verified","scope":"<paths touched>","status":"done","input_evidence":"<pointer to what was checked>","exit_code":0,"artifact_hash":"<sha256>","validator":"<who re-verified, when>","validation_result":"<quoted output>","cannot_claim":"<what this receipt does NOT prove>"}
