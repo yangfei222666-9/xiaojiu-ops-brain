@@ -127,3 +127,32 @@
 | 任务复杂度 | 同日并行:审计链(Codex×4轮)+生产升级+公开仓库修复+多代理面板(t12-t17) | receipts 全账 |
 | 外部验证 | 采纳级+收录级增强(见上) | remote-receipt-gh-api |
 
+## 第 3 次审计(2026-W34,2026-08-23 周日仪式;窗口 8-19→8-23,已消化 W33 午后追加块与上方证据预置块)
+| 指标 | 本周证据(与 receipt 交叉验证) | 判定 |
+|---|---|---|
+| 新能力 | rc.8 生产升级(备份门+回滚演练);本地双车道(Linux 14b/Mac 27b-mlx)接入 DSH;评审管线扩至 6 provider(kimi/ollama 入列,L42);voice-gate v0.4.x 审计修复链;night-shift 每日循环稳定运行(08-21/22 日志);补品报备 launchd 通道 | +1 |
+| 失误率 | 教训 32→46 条(L30-L32 三抓、L34-L41 维护窗口/锁残留/超时白烧、L42 CI、L43 评审 config、L44-L46 仪式新入);本窗口运维三事件(TCC 失权/午夜超时×2/T7 掉线)全部当日闭环;L24/L25 编号墓志保留 | 持平(错误可捕获且全部留证) |
+| 知识面 | 情报课持续;K3/牛来/OpenAI Codex Harness 源码级对照(L36/L39/L40);arXiv 3 篇;llm-verifier 深审;模型战略矩阵(护城河=账本非权重)成文 | +1 |
+| 任务复杂度 | 三机运维+夜班无人循环 → 加:社区共建(T0 主线 M1-M4、7 仓 README 钩子、公开仓库修复)、桌面端监督器 v0.3、多代理面板 | +1 |
+| 外部验证 | 1/1 维持(as_of 2026-08-23):8-17 引用级(wangcan26)+ 8-19/20 采纳级(ExpMem PR#2 merged,84b7c87)+ 收录级(awesome PR#406,voice-gate 入目录)+ 8-22 awesome PR#453(条目更新+paper-trade 新增);**难度标注**:两 PR 均为 fixtures/条目级,非核心逻辑采纳——主证仍是 8-17 引用级 | 1/1(引用级)+增强 |
+
+完成判据进度:**审计 3/12**,外部验证 **1/1(引用级,as_of 2026-08-23)**。
+
+## W34 外部验证复核(按判定标准逐条,08-23 仪式)
+- 谁/在哪/说了什么/为什么算:见上方 8-17/8-19/8-20 引证段(主证 wangcan26 discussion#14 引用条款;采纳=ExpMem PR#2 merge SHA 84b7c872;收录=awesome PR#406 SHA b88e9add、PR#453 8-22 合入)。外部验证证据包:brain/external-validation.jsonl + brain/reviews/target-l3-wangcan26-reply.md + remote-receipt 条目(gh api 实拉)。
+- 四模型门(08-23 02:00 评审,按规则16):glm=support / claude=mixed / gemini=support / codex=mixed。两 mixed 均为"评审器无网络、无法核验链接/SHA"类**访问限制**,未提出实质反证 → 不触发降级;定位修正(采纳 claude/growth 建议):四模型评审=**内部质检闸门**(可用于降级,不可用于达成),外部验证的"达成"只认真人证据。
+- 新增模型观察(ollama/growth,入翻转观察区):「外部性限于 DSH 社区+X,缺乏生态外独立第三方」——真实边界,不推翻引用级判定;**翻转条件追加**:若生态外独立第三方(非 DSH 生态、非互关圈)出现对产物的 L3 级反馈,应把 1/1 主证升级为生态外引用级;若 wangcan26 回复/两 PR 被撤,现判定失效。
+- 标定:评审器鉴别力 2 样本类(8/8 challenge + 4/4 mixed)维持;下月仪式追加 1 灰样本(待办)。
+
+## 评审建议处置清单(08-23 02:00 六模型评审,ceremony-w34 收尾)
+- ✅ 采纳:claude/lessons「detection 字段+action 可复用」(L44-L46 已按新 schema 落);claude/growth「难度标注+评审定位=内部质检闸门」(已写入上方);codex/growth「external_validation_as_of+最小证据包」(已写入);codex/lessons「applied 硬门槛」(新教训均带证据行)
+- 📋 采纳待办(下周主动项):claude/rules 规则三层拆分;codex/rules 元数据化;kimi/lessons applied 周检钩子;ollama/rules 规则健康度+夜间 N 轮硬停;ollama/lessons 条目0 manifest
+- ❌ 驳回:ollama/growth「盲审轮次」——评审已定位为内部质检闸门,盲审不改变外部性,成本/收益比低
+- 其余(gemini/glm 建议)与本清单同向或已被上述覆盖
+
+## 用户观察栏追加(observations ≠ conclusions)
+| 日期 | 观察 | 定性 | 边界 |
+|---|---|---|---|
+| 2026-08-22 | 用户拍板:护城河=可审计记忆账本,模型=员工可换 | candidate_observation | 战略共识,不改变"证据优先"机制本身 |
+| 2026-08-23 | 用户问「v4pro 是 0831 还是 0813」 | candidate_observation | 用户关注模型版本细节;已核:调用名不变、权重=0813,0831 查无此事 |
+
