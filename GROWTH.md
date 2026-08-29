@@ -161,3 +161,6 @@
 - 五项全"增长":新能力(七视角/哈希链/手机三入口)、知识面 30+ 文件、复杂度 692 receipts、外部验证(M2 合并/M4 发布/七仓推送)
 - 失误率持平偏警惕:128 条失误 receipt 全部闭环,但"完成度幻觉"复发被 Codex 两轮审计抓出(已修+入教训)
 - 审计进度:2/12 → **3/12**
+- 证据栏｜2026-08-29【补班】:补做 2026-08-28 夜班 arXiv 3 篇(#37-#39)+OSS 5 仓(条目 50-54),证据见 `brain/night-shift/log-2026-08-28.md`;仅记知识面/证据输入,不代表复现、落地、runtime readiness 或 truth promotion。
+- 证据栏｜2026-08-29【补班8-27】:补做 2026-08-27 抢修夜漏掉的学习段,arXiv 2 篇(#40-#41)+OSS 3 仓(条目 55-57),证据见 `brain/night-shift/log-2026-08-27-makeup.md`;仅记知识面/候选证据输入,不代表复现、规则落地、runtime readiness 或 truth promotion。
+- 证据栏｜2026-08-29【正常夜班】:完成 arXiv 2 篇(#42-#43)+OSS 5 仓(条目 58-62),证据见 `brain/night-shift/log-2026-08-29.md`;仅记知识面/候选证据输入,不代表当日 arXiv 有投稿、论文或仓库结论已复现、规则已落地、runtime readiness 或 truth promotion。
