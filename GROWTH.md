@@ -168,3 +168,4 @@
 - 审计#4(W35 仪式 2026-08-30 23:45 补开,管家窗主场):学习线十晚全达标;口径对齐 PASS;记忆选型决议=自建 BM25 先行(已建)+候选三审排期;备份假离线根因(M2 DHCP 漂移+SSH 别名旧 IP)修复→备份全绿;教训 L54/L55 链口径挂账+新约定决议;审计进度 3/12 → **4/12**。
 - 证据栏｜2026-08-31【正常夜班】:完成 arXiv 2 篇(#46-#47)+OSS 4 仓(条目 71-74),证据见 `brain/night-shift/log-2026-08-31.md`;仅记知识面/候选证据输入,不代表论文复现、OSS 运行、规则已落地、runtime readiness、独立验收或 truth promotion。
 - 证据栏｜2026-09-01【夜班】:完成 arXiv 2 篇(#48-#49)+OSS 5 仓(条目 75-79),证据见 `brain/night-shift/log-2026-09-01.md`;仅记知识面/候选证据输入,不代表论文复现、OSS 运行、规则已落地、runtime readiness、独立验收或 truth promotion。
+- 证据栏｜2026-09-02【夜班】:完成 arXiv 2 篇(#50-#51)+OSS 4 仓(条目 80-83),证据见 `brain/night-shift/log-2026-09-02.md`;仅记知识面/候选证据输入,不代表论文复现、OSS 运行、规则已落地、runtime readiness、独立验收或 truth promotion。
