@@ -170,3 +170,4 @@
 - 证据栏｜2026-09-01【夜班】:完成 arXiv 2 篇(#48-#49)+OSS 5 仓(条目 75-79),证据见 `brain/night-shift/log-2026-09-01.md`;仅记知识面/候选证据输入,不代表论文复现、OSS 运行、规则已落地、runtime readiness、独立验收或 truth promotion。
 - 证据栏｜2026-09-02【夜班】:完成 arXiv 2 篇(#50-#51)+OSS 4 仓(条目 80-83),证据见 `brain/night-shift/log-2026-09-02.md`;仅记知识面/候选证据输入,不代表论文复现、OSS 运行、规则已落地、runtime readiness、独立验收或 truth promotion。
 - 证据栏｜2026-09-03【夜班】:完成 arXiv 2 篇(#52-#53)+OSS 5 仓(条目 84-88),证据见 `brain/night-shift/log-2026-09-03.md`;仅记知识面/候选证据输入,不代表论文复现、OSS 运行、记忆层对照/选型、规则已落地、runtime readiness、独立验收或 truth promotion。
+- 证据栏｜2026-09-04【夜班】:完成 arXiv 2 篇(#54-#55)+OSS 5 仓(条目 89-93),证据见 `brain/night-shift/log-2026-09-04.md`;仅记知识面/候选证据输入,不代表论文复现、OSS 运行、记忆层对照/选型、规则已落地、runtime readiness、独立验收或 truth promotion。
