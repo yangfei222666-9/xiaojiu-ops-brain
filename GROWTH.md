@@ -173,3 +173,4 @@
 - 证据栏｜2026-09-04【夜班】:完成 arXiv 2 篇(#54-#55)+OSS 5 仓(条目 89-93),证据见 `brain/night-shift/log-2026-09-04.md`;仅记知识面/候选证据输入,不代表论文复现、OSS 运行、记忆层对照/选型、规则已落地、runtime readiness、独立验收或 truth promotion。
 
 - 2026-09-05 夜班:Codex 额度耗尽(至 9-7 11:02),管家按预案亲征执行夜班并达标(arXiv 2 + OSS 5)——无人值守链第一次遭遇执行者断粮,预案成立。
+- 证据栏｜2026-09-06【周日夜班】：本地完成 arXiv 官方 abs+HTML 深读 2 篇（#58–59）、记忆层 brief/full 对照 1 份、OSS 固定 SHA 静态精读 4 仓（99–102）；见 `brain/night-shift/log-2026-09-06.md`。仅记候选研究与追加证据，过程偏差已披露，管家独立验收待完成；不代表论文/OSS 复现、记忆接线、runtime readiness 或 truth promotion。
