@@ -35,7 +35,14 @@ python3 "$VALIDATOR" "$RECEIPTS" >/dev/null 2>&1 || fail_closed "ledger invalid"
 PREV_HASH=""
 PREV_LINE=$(awk 'NF { last=$0; sub(/^[[:space:]]+/, "", last); sub(/[[:space:]]+$/, "", last) } END { print last }' "$RECEIPTS")
 if [ -n "$PREV_LINE" ]; then
-  PREV_HASH=$(printf '%s' "$PREV_LINE" | shasum -a 256 | cut -d' ' -f1)
+  # 2026-09-20: portable SHA-256. `shasum` is a Perl script and is not guaranteed
+  # on every Linux image; `sha256sum` is coreutils. Same digest either way, so the
+  # existing hash chain is unaffected — only the choice of tool changed.
+  if command -v sha256sum >/dev/null 2>&1; then
+    PREV_HASH=$(printf '%s' "$PREV_LINE" | sha256sum | cut -d' ' -f1)
+  else
+    PREV_HASH=$(printf '%s' "$PREV_LINE" | shasum -a 256 | cut -d' ' -f1)
+  fi
 fi
 BASE="{\"ts\":\"$STAMP\",\"event_id\":\"heartbeat-$(date +%s)\",\"action\":\"heartbeat\",\"scope\":\"$ROOT\",\"status\":\"done\",\"input_evidence\":\"ledger validated;todo+hooks read\",\"exit_code\":0,\"validator\":\"operator-next-run\",\"validation_result\":\"[ok] ledger valid\",\"cannot_claim\":\"this heartbeat does not prove any other job ran\""
 if [ -n "$PREV_HASH" ]; then
@@ -49,7 +56,13 @@ OPEN_TODOS=$(grep -c '^- \[ \]' "$TODO")
 
 # due hooks: ISO-date rows within the next 7 days (inclusive), status not done
 TODAY=$(date '+%Y-%m-%d')
-PLUS7=$(date -v+7d '+%Y-%m-%d')
+# 2026-09-20: `date -v+7d` is BSD/macOS-only and fails outright on GNU date, which
+# made the whole heartbeat unusable on Linux. Probe once and fall back to `-d`.
+if date -v+7d '+%Y-%m-%d' >/dev/null 2>&1; then
+  PLUS7=$(date -v+7d '+%Y-%m-%d')
+else
+  PLUS7=$(date -d '+7 days' '+%Y-%m-%d')
+fi
 DUE=$(awk -F'|' -v t="$TODAY" -v p="$PLUS7" '
   NR<=2 { next }
   { d=$2; gsub(/[[:space:]]/,"",d); s=$5; gsub(/[[:space:]]/,"",s) }

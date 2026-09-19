@@ -1,0 +1,48 @@
+name: butler-skeleton
+
+# Why this workflow exists:
+# The repository README and the "Butler in a Repo" document both state that the
+# skeleton ships 19 contract tests and that they pass. Until this workflow existed
+# there was no CI in this repository at all, so that statement was a claim with no
+# public evidence behind it. This workflow is the evidence: it runs the contract
+# tests AND the one-command demo on Linux and macOS, and the log is world-readable
+# without anyone having to clone or trust this repository.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'reference/butler-skeleton/**'
+      - '.github/workflows/demo.yml'
+  pull_request:
+    paths:
+      - 'reference/butler-skeleton/**'
+      - '.github/workflows/demo.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  demo:
+    name: demo.sh on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show toolchain
+        run: |
+          bash --version | head -1
+          python3 --version
+
+      - name: Contract tests (expect 19)
+        working-directory: reference/butler-skeleton
+        run: python3 -m unittest discover -s tests -v
+
+      - name: One-command demo (expect exit 0, and step 3 to refuse)
+        working-directory: reference/butler-skeleton
+        run: ./demo.sh

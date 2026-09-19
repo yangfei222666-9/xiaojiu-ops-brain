@@ -185,7 +185,15 @@ class HeartbeatTests(unittest.TestCase):
         self.assertIn("ledger receipts: 1", proc.stdout)  # logical count for whitespace-only ledger
         self.assertEqual(self._validate(), 0)
 
+    @unittest.skipIf(hasattr(os, "geteuid") and os.geteuid() == 0,
+                     "running as root: mode 000 stays readable, so 'unreadable' cannot be simulated")
     def test_unreadable_todo_fails_closed(self):
+        # 2026-09-20: this asserts that an UNREADABLE todo.md makes the heartbeat fail
+        # closed. Root bypasses permission bits, so inside a root container (a plain
+        # `docker run`, which is how many readers will try it) the premise is false and
+        # the assertion would fail for a reason unrelated to the contract. Skipping is
+        # the honest outcome — the contract is still covered on any non-root runner,
+        # which is what CI and normal use look like.
         todo = os.path.join(self.tmp, "todo.md")
         os.chmod(todo, 0o000)
         try:

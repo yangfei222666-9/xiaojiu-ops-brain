@@ -1,11 +1,51 @@
 # butler-skeleton — reference implementation
 
+[![butler-skeleton](https://github.com/yangfei222666-9/xiaojiu-ops-brain/actions/workflows/demo.yml/badge.svg)](https://github.com/yangfei222666-9/xiaojiu-ops-brain/actions/workflows/demo.yml)
+
 Minimal, dependency-free companion to the "Butler in a Repo" methodology document. Six plain-text templates, one heartbeat script, one validator, one scheduler template, and a contract test suite. Everything is Python 3 / bash standard library only.
+
+**Platforms**: CI runs `demo.sh` on `ubuntu-latest` and `macos-latest` on every change, so the claim below is backed by a world-readable log rather than by assertion. Verified by hand on 2026-09-20 in three environments — macOS, Linux as root, Linux as non-root — all green.
+
+Two tests skip by design depending on the platform, and both skips are honest rather than swallowed:
+
+| test | skips when | why |
+|---|---|---|
+| `test_plist_lints` | `plutil` is absent (any Linux) | the launchd plist is macOS-specific; the systemd / Task Scheduler equivalent is a different artifact |
+| `test_unreadable_todo_fails_closed` | running as root | root bypasses permission bits, so "unreadable" cannot be simulated; a plain `docker run` hits this |
+
+## One-command demo
+
+```bash
+git clone https://github.com/yangfei222666-9/xiaojiu-ops-brain.git
+cd xiaojiu-ops-brain/reference/butler-skeleton && ./demo.sh
+```
+
+It runs in a throwaway copy, so your checkout is never modified. No install, no network, no keys. Real output (2026-09-20):
+
+```text
+=== 1/4  contract tests (19 expected) ===
+  [ok] all tests passed (Ran 19 tests)
+
+=== 2/4  one heartbeat run (append-only, hash-chained) ===
+  [heartbeat] ok | open todos: 1 | due hooks: 0 | ledger receipts: 2
+  [ok] heartbeat exited 0
+
+=== 3/4  fail-closed proof (corrupt the ledger, heartbeat MUST refuse) ===
+  [ok] heartbeat refused the corrupt ledger (non-zero exit, as contracted)
+
+=== 4/4  ledger tail (append-only evidence) ===
+  {"ts":"2026-09-20T06:12:50+0800","event_id":"heartbeat-1789855970","action":"heartbeat","scope":".../butler-skeleton-demo","status":"done","input_evidence":"ledger validated;todo+hooks read","exit_code":0,"validator":"operator-next-run","validation_result":"[ok] ledger valid","cannot_claim":"this heartbeat does not prove any other job ran","prev_hash":"bcfd6bca09b17e125eaa10e87a68d7a0c56d34821dc3b23b2ffa9b675da93912"}
+
+DEMO OK — tests pass, heartbeat appends, and a corrupt ledger fails closed.
+```
+
+Step 3 is the point of the whole pattern: a tampered ledger must make the heartbeat **refuse to run**, not silently succeed with a green summary.
 
 ## Layout
 
 | file | role |
 |---|---|
+| `demo.sh` | one-command, self-contained demo in a throwaway copy (exits non-zero if any claim fails) |
 | `todo.md` | single todo source template |
 | `hooks.md` | far-future hook table template (7-day scan window) |
 | `receipts.jsonl` | append-only evidence ledger template (one synthetic example) |

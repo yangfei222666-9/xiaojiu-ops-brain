@@ -1,11 +1,25 @@
 # 小九值班 · 四层文件记忆法(公开可验部分)
 
+[![butler-skeleton demo](https://github.com/yangfei222666-9/xiaojiu-ops-brain/actions/workflows/demo.yml/badge.svg)](https://github.com/yangfei222666-9/xiaojiu-ops-brain/actions/workflows/demo.yml)
+
 > **痛点**:AI 说"做完了"不可信,记忆悄悄漂移也没人知道。
 > **解法**:四层纯文本记忆——教训必须带证据、完成必须留 receipt、边界写进纪律;全部可 grep、可审计、可交接。
-> **证据**:《Butler in a Repo》架构文档公开,`reference/butler-skeleton` 含 19 个契约测试(CI 绿)。
+> **证据**:《Butler in a Repo》架构文档公开([`docs/butler-in-a-repo.md`](docs/butler-in-a-repo.md)),`reference/butler-skeleton` 含 19 个契约测试(CI 绿)。
 
 > 给 AI agent 装一套以「可审计」为第一优先的记忆 —— 这是它的全部**公开证据**。我们不宣称它永不失败,只承诺失败可被查见。
 > 原则:无证据不写教训;说"做完了"要有可查验的 receipt;拿不准的写"不能宣称"。
+
+## 30 秒验证(一条命令)
+
+```bash
+git clone https://github.com/yangfei222666-9/xiaojiu-ops-brain.git
+cd xiaojiu-ops-brain/reference/butler-skeleton && ./demo.sh
+```
+
+跑在临时副本里,不改你的 checkout;无安装、无网络、无密钥。它会跑 19 个契约测试、执行一次心跳(append-only + 哈希链),
+然后**故意弄坏账本**证明心跳会 fail-closed 拒绝运行 —— 最后一步才是这套模式的意义:**账本被篡改时,心跳必须拒绝运行,而不是照样给你一个绿色的"完成"**。
+
+阅读:架构与设计取舍见 [`docs/butler-in-a-repo.md`](docs/butler-in-a-repo.md);诚实边界(单写者假设、哈希链是"篡改留痕"而非"防篡改"、fail-closed 的确切范围)见 [`reference/butler-skeleton/README.md`](reference/butler-skeleton/README.md)。
 
 ## 四层结构
 
