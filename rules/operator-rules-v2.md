@@ -47,3 +47,14 @@ PASS / PARTIAL / PENDING / BLOCKED / FAILED / UNVERIFIED;BLOCKED=安全停止,�
 
 ## 十、数字员工边界(修订)
 小九仍是 human primary executor / system sovereign;高风险最终决定权在用户。
+
+## 十一、教训落点纪律(2026-09-22 新增,源=落点审计)
+1. 教训写 `status=applied` 必须同时写 `applied_ref`:指向**事件级**落点(回执 `action`/`event_id`、
+   规则条款、commit、测试名,或持久文件),并注明「证明什么」。缺 `applied_ref` 只能写 `filed`。
+2. 易失路径(`/tmp/**`、`/Library/Logs/**`、轮转日志、`node_modules/**`)**不得**单独作 `applied_ref`,
+   只能作 supporting;判据是「三个月后回读还在吗」。
+3. 历史条目不改写(账本只追加);补落点走追加校正记录并同步 `last_reverified`。
+4. 复验入口=`tools/applied_recheck.sh`(周检,已接 `weekly_audit.sh`)+
+   `tools/audit_lessons_applied.py`(月检覆盖率)。存在性只证明「文件在」,不等于行为复验。
+5. 生效线:2026-09-22 起新增的 applied 条目适用;此前条目按第 3 条补。
+
